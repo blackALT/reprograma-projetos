@@ -1,0 +1,44 @@
+[
+    {
+        "id":1,
+        "titulo":"I Feel It Coming",
+        "artista":"The Weeknd",
+        "album":"House of Martins",
+        "duracao":"02:32"
+    },
+    {
+        "id":2,
+        "titulo":"Love Never Felt So Good",
+        "artista":"Michael Jackson",
+        "album":"Album de Teste",
+        "duracao":"03:45"
+    },
+    {
+        "id":3,
+        "titulo":"Billie Jean",
+        "artista":"Michael Jackson",
+        "album":"Album de Teste",
+        "duracao":"03:56"
+    },
+    {
+        "id":3,
+        "titulo":"Triller",
+        "artista":"Michael Jackson",
+        "album":"Album de Teste",
+        "duracao":"03:56"
+    },
+    {
+        "id":3,
+        "titulo":"Rosas",
+        "artista":"Ana Carolina",
+        "album":"Rosas",
+        "duracao":"03:56"
+    },
+    {
+        "id":3,
+        "titulo":"Entre nós dois",
+        "artista":"Ana Carolina",
+        "album":"Rosas",
+        "duracao":"03:56"
+    }
+]

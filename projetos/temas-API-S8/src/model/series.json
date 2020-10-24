@@ -1,0 +1,17 @@
+[
+    {
+        "id":1,
+        "titulo":"The L Word",
+        "duracao":"6 temporadas"
+    },
+    {
+        "id":2,
+        "titulo":"Game of Thrones",
+        "dataLancamento":"8 temporadas"
+    },
+    {
+        "id":3,
+        "titulo":"Everybody Hates Chris",
+        "dataLancamento":"4 temporadas"
+    }
+]

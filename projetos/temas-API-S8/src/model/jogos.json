@@ -1,0 +1,17 @@
+[
+    {
+        "id":1,
+        "titulo":"Diablo",
+        "dataLancamento":"2020"
+    },
+    {
+        "id":2,
+        "titulo":"Fall Guys",
+        "dataLancamento":"2019"
+    },
+    {
+        "id":3,
+        "titulo":"Sonic",
+        "dataLancamento":"2018"
+    }
+]
