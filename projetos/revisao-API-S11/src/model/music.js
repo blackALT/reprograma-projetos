@@ -28,7 +28,15 @@
         "title": "I'm with you",
         "duration": "03:43",
         "launchYear": "2002",
-        "favorited" : true,
+        "favorited" : false,
         "artists": ["Avril Lavigne"]
+    },
+    {
+        "id": 5,
+        "title": "Ordinary World",
+        "duration": "4:50",
+        "launchYear": "1986",
+        "favorited" : true,
+        "artists": ["Duran Duran"]
     }
 ]
