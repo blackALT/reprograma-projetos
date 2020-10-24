@@ -1,5 +1,19 @@
 # {reprograma} projeto livraria
 
+## Estrutura do projeto
+
+```
+pasta-do-projeto
+├── src
+│   ├── controller
+│   ├── model
+│   ├── routes
+│   ├── views
+│   └── index.js
+├── server.js
+├── package.json
+```
+
 #### Contratos entregues para o funcionamento da livraria
 
 #### LIVROS
