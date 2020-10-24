@@ -1,4 +1,4 @@
-# {reprograma} projeto Jogos, Músicas e Séries
+# {reprograma} - [s8] - Projeto: API de Jogos, Músicas e Séries
 
 ## Estrutura do projeto
 
