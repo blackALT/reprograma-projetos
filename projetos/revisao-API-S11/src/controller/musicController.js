@@ -63,22 +63,28 @@ const deleteMusic = (req, res) => {
         const musicId = req.params.id
         const musicsFound = musics.filter(music => music.id == musicId) 
 
-        if (musicsFound && musicsFound.length > 0) {
-            musicsFound.forEach(music => { 
-                const musicIndex = musics.indexOf(music)
-                musics.splice(musicIndex, 1)
-            })
+        if (musicsFound) {
 
+            for (let position = 0; position < musicsFound.length; position++) {
+                console.log(`Posição: ${position}`)
+                console.log(musicsFound[position]) 
+
+                if ( musicsFound.length == 1 || (musicsFound.length > 1 && position > 0)) { 
+
+                    const musicIndex = musics.indexOf(musicsFound[position])
+                    musics.splice(musicIndex, 1)
+                }
+            }
             fs.writeFile("./src/models/musics.json", JSON.stringify(musics), 'utf8', function (err) {
                 if (err) {
                     res.status(500).send({ message: err })
                 } else {
                     console.log("Música deletada com sucesso do arquivo!")
-                    res.sendStatus(204) 
+                    res.sendStatus(204)
                 }
             })
-
         } else {
+          
             res.status(400).send({ message: "Música não encontrada para deletar" })
         }
     } catch (error) {
