@@ -1,4 +1,4 @@
-# {reprograma} [S11] Projeto tema: Músicas
+# {reprograma} - [s11] - Projeto: API de Músicas
 
 ### Estrutura do projeto
 
