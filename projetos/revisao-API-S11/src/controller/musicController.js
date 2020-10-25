@@ -2,8 +2,15 @@ const musics = require("../models/musics.json")
 const fs = require("fs")
 
 const getAllMusics = (req, res) => {
-    console.log(req.url);
-    res.status(200).send(musics);
+    console.log("Minha query string:")
+    console.log(req.query)
+    const artist = req.query.artists
+    if (artist) { 
+        const musicByArtist = musics.filter(music => music.artists.includes(artist))
+        res.status(200).send(musicByArtist)
+    } else { 
+       res.status(200).send(musics)
+    }
 }
 
 const getMusicById = (req, res) => {
@@ -96,13 +103,13 @@ const deleteMusic = (req, res) => {
 const updateFavoritedStatus = (req, res) => {
     try {
         const musicId = req.params.id
-        const newWatched = req.body.favorited 
+        const newFavorited = req.body.favorited 
 
         const musicToUpdate = musics.find(music => music.id == musicId) 
         const musicIndex = musics.indexOf(musicToUpdate)
 
         if (musicIndex >= 0) {
-            musicToUpdate.favorited = newWatched 
+            musicToUpdate.favorited = newFavorited 
             musics.splice(musicIndex, 1, musicToUpdate) 
             fs.writeFile("./src/models/musics.json", JSON.stringify(musics), 'utf8', function (err) {
                 if (err) {
@@ -126,28 +133,20 @@ const updateFavoritedStatus = (req, res) => {
 
 // Contratos para ir ao infinito e além
 
-const getMusicByArtist = (req, res) => {
-    console.log("Minha query string:")
-    console.log(req.query)
-    const artist = req.query.artists
-    if (artist) { 
-        const musicByArtist = musics.filter(music => music.artists.includes(artist))
-        res.status(200).send(musicByArtist)
-    } else { 
-        res.status(200).send(musics)
-    }
+const getMusicBySandy = (req, res) => {
+    const artist = "Sandy"
+    const sandyMusics = musics.filter(music => music.artists.includes(artist))
+    res.status(200).send(sandyMusics);
 }
 
 const getMusicsAfter2010 = (req, res) => {
-    console.log("Minha query string:")
-    console.log(req.query)
-    const year = req.query.launchYear
-    if (year) { 
-        const musicByYear = musics.filter(music => music.launchYear.includes(year))
-        res.status(200).send(musicByYear)
-    } else { 
-        res.status(200).send(musics)
-    }
+    const musicsFiltered = musics.filter(music => music.launchYear > 2010);
+    res.status(200).send(musicsFiltered);
+}
+
+const getFavoriteMusics = (req, res) => {
+    const musicsFavorited = musics.filter(music => music.favorited == true);
+    res.status(200).send(musicsFavorited);
 }
 
 module.exports = {
@@ -157,6 +156,7 @@ module.exports = {
     updateMusic,
     deleteMusic,
     updateFavoritedStatus,
-    getMusicByArtist,
-    getMusicsAfter2010
+    getMusicBySandy,
+    getMusicsAfter2010,
+    getFavoriteMusics
 }
