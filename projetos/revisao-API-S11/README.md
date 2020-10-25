@@ -57,9 +57,9 @@ pasta-do-projeto
 | Verbo        | Recurso                  | Descrição                              |
 | ------------ | ------------------------ | -------------------------------------- |
 | GET          | `/musics/sandy`          | Retornar somente músicas da Sandy      |
-| GET          | `/musics/decade`         | Retornar apenas lançadas depois de 2010  |
+| GET          | `/musics/decade`         | Retornar apenas músicas lançadas depois de 2010  |
 
-### Extras entregues
+#### Extras entregues
 
 - [ ] Rota para mostrar apenas músicas marcadas como favoritas.
 
