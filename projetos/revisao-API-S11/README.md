@@ -52,4 +52,19 @@ pasta-do-projeto
 #### Opcionais entregues
 
 - [ ] Criar uma rota com filtro, para mostrar somente músicas da Sandy.
-- [ ] Mostrar somente músicas mais novas, lançadas depois de 2010.  |
+- [ ] Mostrar somente músicas mais novas, lançadas depois de 2010.
+
+| Verbo        | Recurso                  | Descrição                              |
+| ------------ | ------------------------ | -------------------------------------- |
+| GET          | `/musics/sandy`          | Retornar somente músicas da Sandy      |
+| GET          | `/musics/decade`         | Retornar apenas lançadas depois de 2010  |
+
+### Extras entregues
+
+- [ ] Rota para mostrar apenas músicas marcadas como favoritas.
+
+
+| Verbo        | Recurso                  | Descrição                              |
+| ------------ | ------------------------ | -------------------------------------- |
+| GET          | `/musics/favorite`       | Retornar somente músicas favoritas     |
+
