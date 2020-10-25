@@ -8,8 +8,7 @@ pasta-do-projeto
 │   ├── controller
 │   ├── model
 │   ├── routes
-│   ├── views
-│   └── index.js
+│   └── app.js
 ├── server.js
 ├── package.json
 ```
