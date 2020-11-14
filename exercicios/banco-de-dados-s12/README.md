@@ -5,18 +5,17 @@
   - SQL e NoSQL
   - MongoDB
 
-Nós estamos rodeados de dados em toda parte. Um dado é um valor atribuído a algo ou alguma coisa. O dado isoladamente não possui um significado relevante e não nos leva a nenhuma compreensão pois, a princípio, não representa carrega um sentido. A partir dai entra o conceito de informação, que nada mais é do que a ordenação e organização dos dados visando transmitir significado e compreensão dentro de um determinado contexto. Atualmente o campo que estuda os dados chama-se ciencia de dados (Data Science) e que permite a extração de informações valiosas a partir dos dados contidos em uma corporação ou empresa.
+Nós estamos rodeados de dados em toda parte. Um dado é um valor atribuído a algo ou alguma coisa e, isoladamente, não possui um significado relevante e não nos leva a nenhuma compreensão pois, a princípio, não representa um sentido. A partir dai entra o conceito de informação, que nada mais é do que a ordenação e organização dos dados visando transmitir significado e compreensão dentro de um determinado contexto. Atualmente o campo que estuda os dados chama-se ciencia de dados (Data Science) e permite a extração de informações valiosas a partir dos dados contidos em uma corporação ou empresa.
 
 > Mas onde esses dados ficam armazenados? e como podem ser manipulados?
 
 ### O que é banco de dados?
 
-E aqui que apresentamos o conceito de Banco de Dados. E sim, ele é o que parece. Um banco (local) onde os dados podem ser armazenados. Segundo Korth, um banco de dados “é uma coleção de dados inter-relacionados, representando informações sobre um domínio específico”, ou seja, sempre que for possível agrupar informações que se relacionam e tratam de um mesmo assunto, posso dizer que tenho um banco de dados ¹.
-Uma lista telefônica, um catálogo de CDs ou um sistema de controle de RH de uma empresa são exemplos de bancos de dados.
+E aqui que apresentamos o conceito de Banco de Dados. E sim, ele é o que parece. Um banco (local) onde os dados podem ser armazenados. Segundo Korth, um banco de dados “é uma coleção de dados inter-relacionados, representando informações sobre um domínio específico”, ou seja, sempre que for possível agrupar informações que se relacionam e tratam de um mesmo assunto, posso dizer que tenho um banco de dados ¹. Uma lista telefônica, um catálogo de CDs ou um sistema de controle de RH de uma empresa são exemplos de bancos de dados.
 
 ### Entidades e Atributos
 
-Descendo no detalhe, dentro do conceito de banco de dados temos o conceito de entidade e atributo. Uma entidade é um objeto que é distinguível dos outros objetos, como dados agrupados sobre pessoas, por exemplo. Uma entidade é representada por um conjunto de atributos. No exemplo, a entidade Pessoa pode ter os atributos nome, cpf e endereço enquanto uma entidade Empresa pode ter os atributos razão social, cnpj e sócios, por exemplo. 
+Descendo no detalhe, dentro do conceito de banco de dados temos o conceito de entidade e atributo. Uma entidade é um objeto que é distinguível dos outros objetos, como dados que representam pessoas, por exemplo. Uma entidade é representada por um conjunto de atributos. No exemplo, a entidade Pessoa pode ter os atributos nome, cpf e endereço enquanto uma entidade Empresa pode ter os atributos razão social, cnpj e sócios, por exemplo. 
 
 ### SGDBs
 
