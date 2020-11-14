@@ -6,6 +6,18 @@ const index = require("./routes/index");
 const employees = require("./routes/employeesRoute");
 const books = require("./routes/booksRoute");
 
+mongoose.connect("mongodb://localhost:27017/livraria", {
+  useNewUrlParser: true, 
+  useUnifiedTopology: true 
+});
+
+let db = mongoose.connection;
+
+db.on("error", console.log.bind(console, "connection error:"))
+db.once("open", function (){
+  console.log("conexão feita com sucesso.")
+})
+
 app.use(bodyParser.json());
 
 app.use(function (req, res, next){
