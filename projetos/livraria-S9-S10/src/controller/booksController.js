@@ -1,56 +1,73 @@
-const books = require("../model/books.json");
+const books = require("../model/books");
 const fs = require("fs");
-const { resourceUsage } = require("process");
 
 const getAllBooks = (req, res) => {
-    console.log(req.url);
-    res.status(200).send(books);
+  console.log(req.url);
+  books.find(function (err, books){
+  if (err) {
+      res.status(500).send({ message: err.message })
+      } else {
+      res.status(200).send(books)
+      }
+  })
 }
 
 const postBooks = (req, res) => {
-    console.log(req.body);
-  
-    const { id, title, author, category, available } = req.body;
-  
-    books.push({ id, title, author, category, available });
-  
-    fs.writeFile("./src/model/books.json", JSON.stringify(books), 'utf8', function(err) {
-      if (err) {
-        return res.status(424).send({ message: err });
-      }
-      console.log("Livro atualizado com sucesso!");
+      console.log(req.body);
+      books.countDocuments((err, count) => {
+        if (err) {
+            res.status(424).send({message: err.message});
+        } else {
+            let book = new books(req.body);
+            book.id = count +1;
+            book.save(function (err) {
+                if (err) {
+                    res.status(500).send({ message: err.message })
+                } else {
+                    res.status(201).send({
+                        message: "Livro cadastrado com sucesso",
+                        status: "true"
+                    });
+                }
+            });
+        }
     });
-  
-    res.status(201).send(books);  
   };
 
 const deleteBook = (req, res) => {
-    const id = req.params.id;
-    const bookFiltered = books.find((book) => book.id == id);
-    const index = books.indexOf(bookFiltered);
-    
-    books.splice(index, 1);
-  
-    fs.writeFile("./src/model/books.json", JSON.stringify(books), 'utf8', function(err) {
-      if (err) {
-        return res.status(424).send({ message: err });
-      }
-      console.log("Livro excluído com sucesso!");
-    });
-  
-    res.status(200).send(books);
+    const id = req.params.id
+    books.deleteMany({ id}, function (err, curso){
+        if (err) {
+            res.status(500).send({ message: err.message })
+        } else {
+            res.status(201).send({
+            message: "Livro excluido com sucesso",
+            status: "true"
+        })
+        }
+    })
   };
 
 const getBookByCategory = (req, res) => {
     const categoria = req.params.categoria;
-    const bookFiltered = books.filter(book => book.category == categoria);
-    res.status(200).send(bookFiltered);
+    books.find({ categoria }, function (err, books) {
+      if (err) {
+        res.status(500).send({ message: err.message })
+      } else {
+        res.status(200).send(books);
+      }
+    })
 }
 
 const getAllBooksAvailable = (req, res) => {
-    const booksAvailable = books.filter(book => book.available == true);
-    //const available = booksAvailable.map(book => book.title);
-    res.status(200).send(booksAvailable);
+    console.log(req.url);
+    books.find({ available: true }, function (err, books) {
+      if (err) {
+        res.status(500).send({ message: err.message })
+      } else {
+        res.status(200).send(books);
+      }
+    })
 }
 
 /*
@@ -60,33 +77,16 @@ const getAllBooksAvailable = (req, res) => {
 */
 
 const putBooks = (req, res) => {
-  try {
-    const id = req.params.id;
-
-    const modifiedBook = books.find((book) => book.id == id);
-    console.log(modifiedBook);
-
-    const bookToUpdate = req.body;
-    console.log(bookToUpdate);
-
-    const index = books.indexOf(modifiedBook);
-    console.log(index);
-
-    books.splice(index, 1, bookToUpdate);
-    console.log(books);
-
-    fs.writeFile("./src/model/books.json", JSON.stringify(books), 'utf8', function(err) {
-      if (err) {
-        return res.status(424).send({ message: err });
+  const id = req.params.id
+  books.updateMany({ id },{ $set: req.body },{ upsert: true },function (err) {
+      if (err) { 
+          res.status(500).send(err) 
+      } else { 
+          res.status(200).send({ 
+              mensagem: "Livro atualizado com sucesso!" 
+          }) 
       }
-      console.log("Livro atualizado com sucesso!");
-    });
-  
-    res.status(201).send(books);
-    
-  } catch (err) {
-    return res.status(424).send({ message: err });
-  }
+  })
 }
 
 const patchBooks = (req, res) => {

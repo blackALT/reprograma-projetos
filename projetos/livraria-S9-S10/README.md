@@ -1,5 +1,11 @@
 # {reprograma} - [s9/s10] - Projeto livraria
 
+## Updates da semana s14
+
+```
+Integração com banco de dados Local e Cloud com MongoDB
+```
+
 ## Estrutura do projeto
 
 ```

@@ -12,4 +12,4 @@ const bookSchema = new mongoose.Schema({
 
 const books = mongoose.model('collectionBooks', bookSchema)
 
-module.exports = cursos
+module.exports = books
